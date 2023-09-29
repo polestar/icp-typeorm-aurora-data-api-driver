@@ -62,7 +62,7 @@ export type DbType = 'mysql' | 'postgres';
 export const useCleanDatabase = async (
   dbType: DbType,
   partialOptions: Partial<DataSourceOptions> = {},
-  invoke: (connection: DataSource) => Promise<void>
+  invoke: (connection: any) => Promise<void>
 ) => {
   const connection = await createConnectionAndResetData(dbType, partialOptions);
   try {
