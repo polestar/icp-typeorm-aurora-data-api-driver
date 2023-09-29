@@ -91,11 +91,10 @@
     "ts-node": "^10.7.0",
     "typedoc": "^0.20.33",
     "typeorm": "^0.3.5",
-    "typeorm-aurora-data-api-driver": "https://github.com/sandborg71/typeorm-aurora-data-api-driver.git",
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "data-api-client": "https://github.com/sandborg71/data-api-client.git"
+    "data-api-client": "https://github.com/sandborg71/data-api-client.git#bd3df28a9700e03b8f41254168dc021b93e23b3d"
   },
   "resolutions": {
     "data-api-client": "https://github.com/sandborg71/data-api-client.git",
