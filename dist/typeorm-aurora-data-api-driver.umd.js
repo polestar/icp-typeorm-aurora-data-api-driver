@@ -704,6 +704,10 @@
           : {};
       });
 
+    // Merge configuration data with supplied arguments
+    // eslint-disable-next-line no-unused-vars
+    const mergeConfig = (initialConfig, args) => Object.assign(initialConfig, args);
+
     /********************************************************************/
     /**  QUERY MANAGEMENT                                              **/
     /********************************************************************/
@@ -949,12 +953,59 @@
         RDS: new clientRdsData.RDSDataClient(options)
       }; // end config
 
+      const executeCommand = async (
+        args,
+        CommandClass,
+        configItems = ['resourceArn', 'secretArn', 'database']
+      ) => {
+        const command = new CommandClass(mergeConfig(pick(config, configItems), args));
+        return config.RDS.send(command);
+      };
+
       // Return public methods
       return {
         // Query method, pass config and parameters
         query: (...x) => query(config, ...x),
         // Transaction method, pass config and parameters
-        transaction: (x) => transaction(config, x)
+        transaction: (x) => transaction(config, x),
+
+        // batchExecuteStatement: (args) =>
+        //   config.RDS.batchExecuteStatement(
+        //     mergeConfig(pick(config, ['resourceArn', 'secretArn', 'database']), args)
+        //   ).promise(),
+        batchExecuteStatement: (args) => executeCommand(args, clientRdsData.BatchExecuteStatementCommand),
+
+        // beginTransaction: (args) =>
+        //   config.RDS.beginTransaction(
+        //     mergeConfig(pick(config, ['resourceArn', 'secretArn', 'database']), args)
+        //   ).promise(),
+        // beginTransaction: async (args) => {
+        //   const command = new BeginTransactionCommand(
+        //     mergeConfig(pick(config, ['resourceArn', 'secretArn', 'database']), args)
+        //   );
+        //   return config.RDS.send(command);
+        // },
+        beginTransaction: (args) => executeCommand(args, clientRdsData.BeginTransactionCommand),
+
+        // commitTransaction: (args) =>
+        //   config.RDS.commitTransaction(
+        //     mergeConfig(pick(config, ['resourceArn', 'secretArn']), args)
+        //   ).promise(),
+        commitTransaction: (args) =>
+          executeCommand(args, clientRdsData.CommitTransactionCommand, ['resourceArn', 'secretArn']),
+
+        // executeStatement: (args) =>
+        //   config.RDS.executeStatement(
+        //     mergeConfig(pick(config, ['resourceArn', 'secretArn', 'database']), args)
+        //   ).promise(),
+        executeStatement: (args) => executeCommand(args, clientRdsData.ExecuteStatementCommand),
+
+        // rollbackTransaction: (args) =>
+        //   config.RDS.rollbackTransaction(
+        //     mergeConfig(pick(config, ['resourceArn', 'secretArn']), args)
+        //   ).promise()
+        rollbackTransaction: (args) =>
+          executeCommand(args, clientRdsData.RollbackTransactionCommand, ['resourceArn', 'secretArn'])
       };
     }; // end exports
 

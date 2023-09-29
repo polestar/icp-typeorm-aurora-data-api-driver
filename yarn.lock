@@ -2752,7 +2752,7 @@ dashdash@^1.12.0:
 
 "data-api-client@https://github.com/sandborg71/data-api-client.git#bd3df28a9700e03b8f41254168dc021b93e23b3d":
   version "1.3.0"
-  resolved "https://github.com/sandborg71/data-api-client.git#f0e514e3db3595696e7e2b238e88ab183ed311be"
+  resolved "https://github.com/sandborg71/data-api-client.git#bd3df28a9700e03b8f41254168dc021b93e23b3d"
   dependencies:
     sqlstring "^2.3.2"
 
