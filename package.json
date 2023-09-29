@@ -55,6 +55,7 @@
     "collectCoverage": false
   },
   "devDependencies": {
+    "@aws-sdk/client-rds-data": "^3.421.0",
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
     "@types/jest": "^27.0.0",
@@ -90,12 +91,14 @@
     "ts-node": "^10.7.0",
     "typedoc": "^0.20.33",
     "typeorm": "^0.3.5",
+    "typeorm-aurora-data-api-driver": "https://github.com/sandborg71/typeorm-aurora-data-api-driver.git",
     "typescript": "^3.9.2"
   },
   "dependencies": {
     "data-api-client": "https://github.com/sandborg71/data-api-client.git"
   },
   "resolutions": {
-    "data-api-client": "https://github.com/sandborg71/data-api-client.git"
+    "data-api-client": "https://github.com/sandborg71/data-api-client.git",
+    "typeorm-aurora-data-api-driver": "https://github.com/sandborg71/typeorm-aurora-data-api-driver.git"
   }
 }

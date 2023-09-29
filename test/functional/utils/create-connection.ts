@@ -1,6 +1,3 @@
-// TODO: FIX test
-
-// import * as AWS from 'aws-sdk'
 import * as http from 'http';
 import {
   DataSource,
@@ -25,6 +22,7 @@ const credentials = {
 };
 
 export const createConnection = async (dbType: DbType, partialOptions: any = {}) =>
+  // eslint-disable-next-line implicit-arrow-linebreak
   typeormCreateConnection({
     ...partialOptions,
     name: dbType,
@@ -39,8 +37,11 @@ export const createConnection = async (dbType: DbType, partialOptions: any = {})
     logging: true,
     logger: 'simple-console',
     serviceConfigOptions: !credentials[dbType]?.secretArn && {
-      endpoint: 'http://127.0.0.1:8080',
-      // endpoint: new AWS.Endpoint('http://127.0.0.1:8080'),
+      endpoint: {
+        hostname: '127.0.0.1',
+        port: 8080,
+        protocol: 'http'
+      },
       httpOptions: {
         agent: new http.Agent()
       }
