@@ -10,6 +10,8 @@
 
 ### Description
 
+Fork and experimental upgrade (beta) to aws sdk version 3. (Integration tests are not migrated, failing).
+
 This project is a bridge between [TypeORM](https://typeorm.io/#/) and [Aurora Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html). It allows you to migrate to Aurora Data API which is extremely useful is serverless environments by only modifying the connection configuration. 
 
 ✔ Supports both Postgres and MySQL.

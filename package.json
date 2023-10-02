@@ -1,6 +1,6 @@
 {
   "name": "typeorm-aurora-data-api-driver",
-  "version": "0.0.0-development",
+  "version": "3.0.0-beta",
   "description": "",
   "keywords": [],
   "main": "dist/typeorm-aurora-data-api-driver.umd.js",
@@ -12,7 +12,7 @@
   "author": "Arseny Yankovsky <contact@arseny.dev>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ArsenyYankovsky/typeorm-aurora-data-api-driver"
+    "url": "https://github.com/sandborg71/typeorm-aurora-data-api-driver"
   },
   "license": "MIT",
   "engines": {
@@ -23,7 +23,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc --p tsconfig.build.json --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --theme minimal src",
     "start": "rollup -c rollup.config.ts -w",
-    "test": "jest",
+    "test": "jest unit",
     "test:unit": "jest unit",
     "test:mysql-func": "jest mysql-func --runInBand --detectOpenHandles",
     "test:pg-func": "jest pg-func --runInBand --detectOpenHandles",
@@ -93,10 +93,9 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "data-api-client": "https://github.com/sandborg71/data-api-client.git#bd3df28a9700e03b8f41254168dc021b93e23b3d"
+    "data-api-client": "https://github.com/sandborg71/data-api-client.git#a052cf7ef716a1ab489482e7e220d674bd818a01"
   },
   "resolutions": {
-    "data-api-client": "https://github.com/sandborg71/data-api-client.git#bd3df28a9700e03b8f41254168dc021b93e23b3d",
-    "typeorm-aurora-data-api-driver": "https://github.com/sandborg71/typeorm-aurora-data-api-driver.git#30fe40164537002ac78bafec7f225426ac11d791"
+    "data-api-client": "https://github.com/sandborg71/data-api-client.git#a052cf7ef716a1ab489482e7e220d674bd818a01"
   }
 }
