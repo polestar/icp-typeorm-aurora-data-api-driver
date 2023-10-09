@@ -93,9 +93,9 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "data-api-client": "https://github.com/sandborg71/data-api-client.git#a052cf7ef716a1ab489482e7e220d674bd818a01"
+    "data-api-client": "https://github.com/polestar/icp-data-api-client"
   },
   "resolutions": {
-    "data-api-client": "https://github.com/sandborg71/data-api-client.git#a052cf7ef716a1ab489482e7e220d674bd818a01"
+    "data-api-client": "https://github.com/polestar/icp-data-api-client"
   }
 }
